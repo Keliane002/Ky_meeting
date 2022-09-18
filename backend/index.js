@@ -36,15 +36,11 @@ app.get("/api", (req, res) => {
 });
 
 app.post("/api", (req, res) => {
-    console.log("call api for push");
-    console.log(req.body.item);
     appointment.push(req.body.item);
-    console.log(appointment);
     res.json({ appointment: appointment });
 });
 
 app.delete("/api/:id", (req, res) => {
-    console.log("call api for delete")
     appointment.filter(x => x.id !== req.params.id);
     res.json({ appointment: appointment });
 });
